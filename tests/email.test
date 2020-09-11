@@ -1,0 +1,56 @@
+"use strict";
+
+const Models = require("./setup/models.js");
+const DB = require("./setup/db.js");
+
+const Email = Models.Email;
+const User = Models.User;
+
+describe("Testing email", function() {
+
+  let user = null;
+
+  beforeAll(() => {
+
+    return DB.sync({force: true}).then(() => {
+      return User.create({
+        username: 'test',
+        password: 'password'
+      });
+    }).then((result) => {
+      user = result;
+      return Email.create({
+        email: "test@test.com",
+        userUuid: user.get("uuid"),
+        token: "1234",
+        verified: null,
+        main: true,
+      });
+    }).then(() => {
+      return Email.create({
+        email: "secondary@test.com",
+        userUuid: user.get("uuid"),
+        token: "5934",
+        verified: null,
+      });
+    });
+  });
+
+  it("Check primaryEmail scope", () => {
+    User.scope('primaryEmail').findById(user.get("uuid")).then((user) => {
+      expect(user.get("emails")[0].get("email")).toEqual("test@test.com");
+    });
+  });
+
+  it("Adding secondary primary fails", () => {
+    Email.create({
+      email: "second.primary@test.com",
+      userUuid: user.get("uuid"),
+      token: "5934",
+      verified: null,
+      primary: true,
+    }).catch((err) => {
+      expect(err.parent.message).toEqual(expect.stringMatching(/^duplicate/));
+    });
+  });
+});

@@ -1,0 +1,60 @@
+{
+  "_from": "git+https://github.com/astronomerio/postgres-schema.git#0.0.8",
+  "_id": "postgres-schema@0.0.1",
+  "_inBundle": false,
+  "_integrity": "",
+  "_location": "/postgres-schema",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "postgres-schema@git+https://github.com/astronomerio/postgres-schema.git#0.0.8",
+    "name": "postgres-schema",
+    "escapedName": "postgres-schema",
+    "rawSpec": "git+https://github.com/astronomerio/postgres-schema.git#0.0.8",
+    "saveSpec": "git+https://github.com/astronomerio/postgres-schema.git#0.0.8",
+    "fetchSpec": "https://github.com/astronomerio/postgres-schema.git",
+    "gitCommittish": "0.0.8"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "git+https://github.com/astronomerio/postgres-schema.git#98340999d7285bc8528573158ea85541893b481e",
+  "_spec": "postgres-schema@git+https://github.com/astronomerio/postgres-schema.git#0.0.8",
+  "_where": "/Users/myeager/CaseSensitiveVolume/metarouter/cloud/houston",
+  "author": {
+    "name": "Astronomer",
+    "url": "humans@astronomer.io"
+  },
+  "bugs": {
+    "url": "https://github.com/astronomerio/postgres-schema/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "crypto-random-string": "^1.0.0",
+    "sequelize": "^4.13.8",
+    "umzug": "^2.1.0"
+  },
+  "deprecated": false,
+  "description": "Sequalizer models for PostgreSQL database",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "jest": "^21.2.1",
+    "pg": "^7.3.0",
+    "pg-hstore": "^2.3.2"
+  },
+  "homepage": "https://github.com/astronomerio/postgres-schema#readme",
+  "license": "MIT",
+  "main": "index.js",
+  "name": "postgres-schema",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/astronomerio/postgres-schema.git"
+  },
+  "scripts": {
+    "migrate": "node ./scripts/migrate.js",
+    "test": "jest"
+  },
+  "version": "0.0.1"
+}
